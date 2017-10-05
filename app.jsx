@@ -72,23 +72,24 @@ render () {
       if(e.target.textContent == 'start'){
         e.target.textContent = 'stop';
         
-        this.startTimer();
+        this.timeStart();
       }
       else{
         e.target.textContent = 'start';
-        this.stopTimer();
+        this.timeStop();
       }
     }
     const reset = (e) => {
-      this.resetTimer();
+      this.timeReset();
     }
     return (
             <div className="stopwatch-time">
-              <h2> {title} </h2>
+              
               <span> {this.state.time}</span><br/>
-              <button onClick={start}>start</button>
-              <button onClick={reset}>reset</button>
+              <button className= "stopwatch" onClick={start}>start</button>
+              <button className= "stopwatch" onClick={reset}>reset</button>
             </div>
+           
      );
   }
  
@@ -127,12 +128,11 @@ const PlayerApp = ({ title, model }) => {
         </table>
       </div>
       <div className="col-sm-4.5">
+      
         <div className="stopwatch">
           <h2>STOPWATCH</h2>
-          <h1 className="stopwatch-time">0</h1>
-          <button>start</button>
-          <button>reset</button>
-        </div>
+           <Timer/>
+         </div>
       </div>
     </div>
   );
@@ -173,6 +173,7 @@ const PlayerApp = ({ title, model }) => {
         {Header}
         {PlayerList}
         {PlayerForm}
+        
       </div>
     </div>
   );
