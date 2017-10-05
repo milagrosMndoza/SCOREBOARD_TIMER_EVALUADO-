@@ -65,6 +65,50 @@ class Timer extends React.Component {
       time: 0
     }
 }
+render () {
+    const {title} = this.props;
+    const start = (e) => {
+      
+      if(e.target.textContent == 'start'){
+        e.target.textContent = 'stop';
+        
+        this.startTimer();
+      }
+      else{
+        e.target.textContent = 'start';
+        this.stopTimer();
+      }
+    }
+    const reset = (e) => {
+      this.resetTimer();
+    }
+    return (
+            <div className="stopwatch-time">
+              <h2> {title} </h2>
+              <span> {this.state.time}</span><br/>
+              <button onClick={start}>start</button>
+              <button onClick={reset}>reset</button>
+            </div>
+     );
+  }
+ 
+  timeStart () {
+    this.timer = setInterval( () => {
+    this.setState ({
+      time : this.state.time+1
+    });}, 1000);
+  }
+
+  timeStop () {
+    clearInterval(this.timer);
+  }
+  timeReset(){
+    clearInterval(this.timer);
+    this.setState ({
+      time :0
+    });
+  }
+}
  
 /*******************************************************/
 const PlayerApp = ({ title, model }) => {
