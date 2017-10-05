@@ -66,7 +66,7 @@ class Timer extends React.Component {
     }
 }
 render () {
-    const {title} = this.props;
+    // const {title} = this.props;
     const start = (e) => {
       
       if(e.target.textContent == 'start'){
@@ -83,11 +83,11 @@ render () {
       this.timeReset();
     }
     return (
-            <div className="stopwatch-time">
-              
-              <span> {this.state.time}</span><br/>
-              <button className= "stopwatch" onClick={start}>start</button>
-              <button className= "stopwatch" onClick={reset}>reset</button>
+            <div className="stopwatch">
+              <h2>STOPWATCH</h2>
+              <span className="stopwatch-time"> {this.state.time}</span><br/>
+              <button  onClick={start}>start</button>
+              <button  onClick={reset}>reset</button>
             </div>
            
      );
@@ -129,10 +129,9 @@ const PlayerApp = ({ title, model }) => {
       </div>
       <div className="col-sm-4.5">
       
-        <div className="stopwatch">
-          <h2>STOPWATCH</h2>
+                
            <Timer/>
-         </div>
+         
       </div>
     </div>
   );
