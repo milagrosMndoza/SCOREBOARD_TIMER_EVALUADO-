@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 class Model {
   constructor(PLAYERS) {
     this.players = [
@@ -57,7 +57,16 @@ class Model {
       this.notify();
     }
 }
-
+/*******************************************************/
+class Timer extends React.Component {
+    constructor (props) {
+    super (props);
+    this.state = {
+      time: 0
+    }
+}
+ 
+/*******************************************************/
 const PlayerApp = ({ title, model }) => {
   const Header = (
     <div className="header">
